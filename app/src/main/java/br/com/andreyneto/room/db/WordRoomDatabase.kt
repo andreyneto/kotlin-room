@@ -38,6 +38,7 @@ abstract class WordRoomDatabase : RoomDatabase() {
                     // Criação do DB
                     instance = Room
                         .databaseBuilder(context, WordRoomDatabase::class.java, "word_database")
+                        .addCallback(roomDatabaseCallback)
                         .build()
                 }
             }
