@@ -4,9 +4,12 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.com.andreyneto.room.R
+import br.com.andreyneto.room.viewmodel.WordViewModel
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
@@ -26,6 +29,10 @@ class MainActivity : AppCompatActivity() {
         val adapter = WordListAdapter(this)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
+        val wordViewModel = ViewModelProviders.of(this).get(WordViewModel::class.java)
+        wordViewModel.allWords.observe(this, Observer {
+            adapter.words = it
+        })
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
