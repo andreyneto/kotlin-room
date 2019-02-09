@@ -18,11 +18,7 @@ class WordListAdapter(context: Context) : RecyclerView.Adapter<WordListAdapter.W
     override fun getItemCount() = words.size
 
     override fun onBindViewHolder(holder: WordViewHolder, position: Int) {
-        if(words.isEmpty()) {
-            holder.wordItemView.text = "No Words"
-        } else {
-            holder.wordItemView.text = words[position].word
-        }
+        holder.wordItemView.text = words[position].word
     }
 
     private val inflater = LayoutInflater.from(context)
