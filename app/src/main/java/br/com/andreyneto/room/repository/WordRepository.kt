@@ -16,7 +16,7 @@ class WordRepository(application: Application) {
         allWords = wordDao.getAllWords()
     }
 
-    fun insert(word: Word) {
+    infix fun insert(word: Word) {
         doAsync {
             wordDao.insert(word)
         }
