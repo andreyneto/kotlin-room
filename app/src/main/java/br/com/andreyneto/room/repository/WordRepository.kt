@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import br.com.andreyneto.room.dao.WordDao
 import br.com.andreyneto.room.db.WordRoomDatabase
 import br.com.andreyneto.room.entities.Word
+import org.jetbrains.anko.doAsync
 
 class WordRepository(application: Application) {
     private val wordDao: WordDao
@@ -13,5 +14,11 @@ class WordRepository(application: Application) {
         val db = WordRoomDatabase.getDatabase(application)
         wordDao = db.wordDao()
         allWords = wordDao.getAllWords()
+    }
+
+    fun insert(word: Word) {
+        doAsync {
+            wordDao.insert(word)
+        }
     }
 }
