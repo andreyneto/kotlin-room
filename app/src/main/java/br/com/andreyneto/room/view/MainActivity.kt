@@ -1,9 +1,10 @@
-package br.com.andreyneto.room
+package br.com.andreyneto.room.view
 
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import br.com.andreyneto.room.R
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
 
