@@ -10,7 +10,7 @@ class WordViewModel(application: Application) : AndroidViewModel(application) {
 
     val allWords = repository.allWords
 
-    fun insert(word: Word) {
+    infix fun insert(word: Word) {
         repository insert word
     }
 }
